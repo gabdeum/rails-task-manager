@@ -1,8 +1,11 @@
 <div class="container mt-4">
-  <h1 class="mb-3"><%= @task.title %></h1>
+  <div class="d-flex justify-content-between align-items-start">
+    <h1 class="mb-3"><%= @task.title %></h1>
+    <%= link_to 'Update task', edit_task_path, class: 'btn btn-outline-primary' %>
+  </div>
   <div class="card mb-3">
     <div class="card-body"><%= @task.details %></div>
   </div>
-  <p class="mb-3"><%= @task.completed ? '[_] This task is not completed yet' : '[x] This task is completed' %></p>
-  <%= link_to 'Back to list', tasks_path %>
+  <p class="mb-3"><i class="fa-regular <%= @task.completed ? 'fa-square-check' : 'fa-square' %>"></i><%= @task.completed ? ' This task is completed' : ' This task is not completed' %></p>
+  <%= link_to 'Back to list', tasks_path %> | <%= link_to "Delete task", task_path(@task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
 </div>

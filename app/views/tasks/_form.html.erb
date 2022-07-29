@@ -1,0 +1,12 @@
+<%= form_for(task) do |f| %>
+  <%= f.label :title, class: 'form-label mt-2' %>
+  <%= f.text_field :title, class: 'form-control' %>
+  <%= f.label :details, class: 'form-label mt-2' %>
+  <%= f.text_area :details, class: 'form-control' %>
+  <% unless f.object.new_record? %>
+    <div class="checkbox mt-3">
+      <label><%= f.check_box :completed %> Completed</label>
+    </div>
+  <% end %>
+  <%= f.submit class: 'btn btn-primary mt-4' %>
+<% end %>

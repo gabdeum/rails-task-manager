@@ -2,7 +2,9 @@
   <h1>My tasks</h1>
   <ul>
     <% @tasks.each do |task| %>
-      <li>[<%= task.completed ? 'x' : '_' %>] <%= link_to task.title, task_path(task) %></li>
+      <li style="list-style: none;"> <i class="fa-regular <%= task.completed ? 'fa-square-check' : 'fa-square' %>"></i> <%= link_to task.title, task_path(task) %>
+      <%= link_to '', task_path(task), class: "fa-solid fa-delete-left", style: "text-decoration: none;", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></li>
     <% end %>
   </ul>
+  <%= link_to 'Create new task', new_task_path %>
 </div>
