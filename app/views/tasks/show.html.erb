@@ -1,0 +1,8 @@
+<div class="container mt-4">
+  <h1 class="mb-3"><%= @task.title %></h1>
+  <div class="card mb-3">
+    <div class="card-body"><%= @task.details %></div>
+  </div>
+  <p class="mb-3"><%= @task.completed ? '[_] This task is not completed yet' : '[x] This task is completed' %></p>
+  <%= link_to 'Back to list', tasks_path %>
+</div>
